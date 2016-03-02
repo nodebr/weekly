@@ -1,0 +1,22 @@
+{
+  "name": "weekly",
+  "description": "Resumo semanal de Node.js em Português no teu email.",
+  "main": "",
+  "authors": [
+    "Jean Lucas <jeanleonino@gmail.com>"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/nodebr/weekly",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "uikit": "^2.25.0"
+  }
+}
