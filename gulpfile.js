@@ -1,8 +1,10 @@
 'use strict';
 
+var del = require('del');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var del = require('del');
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
 
 gulp.task('sass', function () {
   return gulp.src('./src/scss/app.scss')
@@ -20,8 +22,16 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('dist', ['clean', 'copy', 'sass']);
-
-gulp.task('default', function() {
-  // place code for your default task here
+gulp.task('scripts', function() {
+  return gulp.src([
+      './bower_components/jquery/dist/jquery.min.js',
+      './bower_components/uikit/js/uikit.min.js',
+      './src/js/*.js',
+    ])
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./dist/'));
 });
+
+gulp.task('dist', ['clean', 'copy', 'sass', 'scripts']);
+
+gulp.task('default', ['dist']);
